@@ -64,8 +64,16 @@ class appclass():
 
 
         mod = system_modules(name='InfoScript', active=1, type='Gatherer', version=1.1)
-        system_modules_marks(actionS = 50, actionL = 50, actionM = 50, date= datetime.datetime(2001, 5, 3), module=mod)
-        mod._get_rate()
+        f= system_firms(name='MaxCo', isin='COCOCOCOCO', code='coco', groupe='1')
+        system_modules_marks(actionS = 1, actionL = 1, actionM = 1, date= datetime.datetime.now(), module=mod)
+        system_modules_marks(actionS = 1, actionL = 0, actionM = 0, date= datetime.datetime.now(), module=mod)
+
+        system_advices(actionS = 1, actionL = 1, actionM = 1, date= datetime.datetime.now(), module=mod,firm=f)
+        system_advices(actionS = -1, actionL = 1, actionM = -1, date= datetime.datetime.now(), module=mod,firm=f)
+        system_advices(actionS = 1, actionL = 0, actionM = 1, date= datetime.datetime.now(), module=mod,firm=f)
+
+        print mod.rates
+        print f.rates
 
 
     def run_gatherer(self):

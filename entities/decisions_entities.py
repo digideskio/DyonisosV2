@@ -14,12 +14,12 @@ class system_advices(SQLObject):
 
     firm = ForeignKey('system_firms')
     module = ForeignKey('system_modules')
-    order = ForeignKey('system_orders')
+    order = ForeignKey('system_orders', default=None)
 
 
 
 class system_orders(SQLObject):
-    forecastType = IntCol()
+    forecastType = IntCol() # Short, Medium, Long
 
     entryQuote = FloatCol()
     exitQuote = FloatCol()
