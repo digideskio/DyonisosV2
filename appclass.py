@@ -147,5 +147,3 @@ class appclass():
     def run(self):
         self.get_last_quote_info()
         self.run_gatherer()
-
-        print "petite bite"
